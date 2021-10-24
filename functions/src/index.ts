@@ -1,4 +1,6 @@
-import * as functions from "firebase-functions";
+import aliases from 'module-alias';
+aliases.addAlias('~', __dirname);
+
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript

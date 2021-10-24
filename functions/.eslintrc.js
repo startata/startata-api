@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: [
+    "prettier",
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
@@ -14,18 +15,27 @@ module.exports = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: ["tsconfig.json", "tsconfig.dev.json"],
+    project: ["tsconfig.json"],
     sourceType: "module",
   },
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
+   ".eslintrc.js",
+   ".prettierrc.js"
   ],
   plugins: [
+    "prettier",
     "@typescript-eslint",
     "import",
   ],
   rules: {
-    "quotes": ["error", "double"],
+    "require-jsdoc": 0,
+    "no-duplicate-case": "error",
+    "object-curly-spacing": ["error", "always", { "arraysInObjects": true }],
+    "import/no-unassigned-import": ["error", { "allow": ["module-alias/register"] }],
+    "no-duplicate-imports": "error",
+    "quotes": ["error", "single", { "avoidEscape": true }],
     "import/no-unresolved": 0,
+    "indent": ["error", 2]
   },
 };
